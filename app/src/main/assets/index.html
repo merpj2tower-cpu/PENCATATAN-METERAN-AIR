@@ -2,322 +2,202 @@
 <html lang="id">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>Catatan Meteran Air RUSUN PULO JAHE</title>
+<title>Catatan Meteran Air RUSUN PULO JAHE TOWER</title>
 <style>
-:root{--bg:#f4f7f6;--panel:#fff;--ink:#172a24;--muted:#61736b;--line:#dce6e0;--green:#087f5b;--soft:#e7f6ef}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,sans-serif}
-header{padding:20px;background:var(--panel);border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
-.brand h1{margin:0;font-size:20px;color:var(--green)}
-.sub{font-size:13px;color:var(--muted)}
-main{max-width:1000px;margin:auto;padding:20px}
-.panel{background:var(--panel);padding:20px;border-radius:12px;border:1px solid var(--line);margin-bottom:20px}
-.fields{display:grid;grid-template-columns:1fr 1fr;gap:15px}
-.field.full{grid-column:1/-1}
-label{font-size:12px;font-weight:bold;color:var(--muted);display:block;margin-bottom:5px}
-
-/* VERY BASIC NATIVE SELECT FIX */
-select, input {
-    width: 100%;
-    padding: 12px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    background-color: #fff;
-    color: #000;
-}
-select {
-    /* Forcing native android dropdown style */
-    -webkit-appearance: menulist;
-    appearance: menulist;
-    height: 48px;
-}
-
-button {
-    padding: 12px 16px;
-    font-size: 14px;
-    font-weight: bold;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    background: #e0e0e0;
-    color: #333;
-}
-button.primary { background: var(--green); color: #fff; }
-button.danger { background: #d32f2f; color: #fff; }
-button:disabled { opacity: 0.5; }
-
-.camera-box { border: 2px dashed #ccc; padding: 15px; text-align: center; border-radius: 8px; }
-#preview { width: 100%; max-height: 250px; object-fit: contain; margin-top: 10px; display: none; }
-.table-wrap { overflow-x: auto; margin-top: 15px; }
-table { width: 100%; border-collapse: collapse; font-size: 14px; }
-th, td { text-align: left; padding: 10px; border-bottom: 1px solid var(--line); }
-th { background: #f9f9f9; color: var(--muted); }
-.tabs{display:flex;gap:10px;margin-bottom:15px}
-.tab{background:none;border-bottom:2px solid transparent;color:var(--muted);border-radius:0;padding:10px;}
-.tab.active{color:var(--green);border-color:var(--green)}
-.section{display:none} .section.active{display:block}
-@media(max-width:600px){.fields{grid-template-columns:1fr}}
+:root{color-scheme:light dark;--bg:light-dark(#f4f7f6,#111a18);--panel:light-dark(#fff,#1b2723);--ink:light-dark(#172a24,#edf5f0);--muted:light-dark(#61736b,#a7b9b0);--line:light-dark(#dce6e0,#34463e);--green:light-dark(#087f5b,#65d6a9);--soft:light-dark(#e7f6ef,#203b30);--warn:light-dark(#fff3d8,#49381c)}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 system-ui,-apple-system,Segoe UI,sans-serif}#app{min-height:100vh;background:var(--bg)}header{padding:24px clamp(16px,4vw,44px);background:var(--panel);border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}.brand{display:flex;gap:14px;align-items:center}.logo-img{width:52px;height:52px;border-radius:16px;background:var(--soft);display:grid;place-items:center;box-shadow:0 4px 12px rgba(8,127,91,0.15)}.eyebrow{font-size:12px;color:var(--green);font-weight:800;letter-spacing:.1em;text-transform:uppercase}.brand h1{font-size:22px;margin:1px 0}.sub{color:var(--muted);font-size:13px}.header-actions{display:flex;gap:8px;flex-wrap:wrap}button.danger{background:#b42318;border-color:#b42318;color:#fff}button,.btn{border:1px solid var(--line);border-radius:11px;padding:10px 14px;background:var(--panel);color:var(--ink);font-weight:700;cursor:pointer}button.primary{background:var(--green);border-color:var(--green);color:#06291c}button:disabled{opacity:.45;cursor:not-allowed}main{max-width:1200px;margin:auto;padding:24px clamp(14px,3vw,32px) 48px}.banner{background:linear-gradient(135deg, #087f5b 0%, #044e37 100%);color:#fff;border-radius:16px;padding:20px 24px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;gap:16px;box-shadow:0 6px 20px rgba(8,127,91,0.2)}.banner-text h2{margin:0 0 4px;font-size:19px}.banner-text p{margin:0;opacity:0.9;font-size:13px}.banner-icon{font-size:40px;background:rgba(255,255,255,0.15);width:64px;height:64px;border-radius:50%;display:grid;place-items:center;flex-shrink:0}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:20px}.stat,.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px}.stat .label{font-size:12px;color:var(--muted)}.stat strong{display:block;font-size:27px;margin-top:6px}.stat small{color:var(--muted)}.layout{display:grid;grid-template-columns:minmax(300px,.85fr) minmax(0,1.15fr);gap:18px;align-items:start}.panel h2{font-size:18px;margin:0 0 4px}.panel p{margin:0 0 18px;color:var(--muted);font-size:13px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}label{font-size:12px;color:var(--muted);font-weight:700}input,select{width:100%;padding:12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;min-width:0;cursor:pointer}input[type=file]{padding:8px}.camera{border:1px dashed var(--line);background:var(--bg);border-radius:13px;padding:12px}.camera img{width:100%;max-height:240px;object-fit:contain;border-radius:8px;display:block;margin-top:10px}.camera-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}.hint{font-size:12px;color:var(--muted);margin-top:7px}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.notice{background:var(--warn);border-radius:10px;padding:10px 12px;font-size:12px;margin:12px 0}.tabs{display:flex;gap:6px;border-bottom:1px solid var(--line);margin-bottom:16px;overflow:auto}.tab{border:0;border-radius:9px 9px 0 0;background:transparent;color:var(--muted);white-space:nowrap}.tab.active{color:var(--green);border-bottom:2px solid var(--green)}.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}.filters>*{flex:1;min-width:120px}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:12px}table{width:100%;border-collapse:collapse;min-width:650px;font-size:13px}th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);white-space:nowrap}th{font-size:11px;color:var(--muted);text-transform:uppercase;background:var(--bg)}tbody tr:last-child td{border-bottom:0}.pill{font-size:11px;padding:4px 7px;border-radius:20px;background:var(--soft);color:var(--green);font-weight:800}.empty{text-align:center;color:var(--muted);padding:28px}.section{display:none}.section.active{display:block}.small{font-size:12px;color:var(--muted)}.foot{margin-top:16px;color:var(--muted);font-size:12px}@media(max-width:800px){.layout{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.stat{padding:14px}.stat strong{font-size:23px}}@media(max-width:420px){.fields{grid-template-columns:1fr}.field.full{grid-column:auto}header{padding:16px}.brand h1{font-size:19px}}
 </style>
 <script src="exceljs.min.js"></script>
 </head>
-<body>
+<body><div id="app">
 <header>
   <div class="brand">
-    <h1>RUSUN PULO JAHE</h1>
-    <div class="sub">Catatan Meter Air Offline</div>
+    <div class="logo-img">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#087f5b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+    </div>
+    <div>
+      <div class="eyebrow">RUSUN PULO JAHE TOWER</div>
+      <h1>Pencatatan Water Meter Hunian</h1>
+      <div class="sub">Pencatatan meter air per unit · Tower A & B</div>
+    </div>
   </div>
-  <div style="display:flex;gap:10px;">
-    <button id="exportBtn" class="primary">↓ Ekspor Excel</button>
+  <div class="header-actions">
+    <button id="exportBtn" class="primary">↓ Ekspor ke Excel (.xlsx)</button>
+    <button class="danger" id="deleteAllBtn">🗑 Hapus data</button>
+    <button class="primary" id="newBtn">＋ Catat meter</button>
   </div>
 </header>
 <main>
-<div class="panel">
-  <form id="entryForm">
-    <div class="fields">
-      <div class="field">
-        <label>TOWER</label>
-        <select id="tower" required>
-            <option value="">Pilih Tower</option>
-            <option value="A">Tower A</option>
-            <option value="B">Tower B</option>
-        </select>
-      </div>
-      <div class="field">
-        <label>LANTAI</label>
-        <select id="floor" required></select>
-      </div>
-      <div class="field full">
-        <label>UNIT</label>
-        <select id="unit" required></select>
-      </div>
-      <div class="field full">
-        <label>TANGGAL</label>
-        <input type="date" id="date" required>
-      </div>
-      <div class="field full">
-        <label>FOTO METER / KAMERA</label>
-        <div class="camera-box">
-          <input type="file" id="photo" accept="image/*" style="margin-bottom:10px;">
-          <br>
-          <button type="button" id="ocrBtn" disabled>🔍 Coba Baca Angka Otomatis (OCR)</button>
-          <img id="preview">
-          <p id="ocrStatus" style="font-size:12px;color:#666;"></p>
-        </div>
-      </div>
-      <div class="field full">
-        <label>ANGKA METER (m³)</label>
-        <input type="number" id="reading" step="0.001" placeholder="Contoh: 125.500" required>
-      </div>
-      <div class="field full">
-        <label>CATATAN KONDISI (Opsional)</label>
-        <input type="text" id="notes" placeholder="Misal: Meteran buram, segel rusak">
-      </div>
-    </div>
-    <div style="margin-top:20px; display:flex; gap:10px;">
-      <button type="submit" class="primary" style="flex:1;">Simpan Data</button>
-      <button type="reset" id="resetBtn">Reset</button>
-    </div>
-  </form>
+<div class="banner">
+  <div class="banner-text">
+    <h2>Sistem Pendataan & Rekap Air Bersih Rusun</h2>
+    <p>Mendukung pencatatan Lantai 2 s.d. 24, Unit 1 s.d. 17 (Tower A & B), lengkap dengan foto bukti & OCR.</p>
+  </div>
+  <div class="banner-icon">💧</div>
 </div>
-
-<div class="panel">
-  <div class="tabs">
-    <button class="tab active" onclick="switchTab('history', this)">Riwayat Data</button>
-    <button class="tab" onclick="switchTab('summary', this)">Rekap 782 Unit</button>
-  </div>
-  
-  <div id="history" class="section active">
-    <div style="display:flex;gap:10px;margin-bottom:10px;">
-        <select id="filterTower"><option value="">Semua Tower</option><option>A</option><option>B</option></select>
-        <input type="text" id="searchUnit" placeholder="Cari unit (misal A-02-05)...">
-    </div>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>Tgl</th><th>Unit</th><th>Meter (m³)</th><th>Pakai (m³)</th><th>Aksi</th></tr></thead>
-        <tbody id="historyBody"></tbody>
-      </table>
-    </div>
-  </div>
-
-  <div id="summary" class="section">
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>Unit</th><th>Tgl Terakhir</th><th>Meter Terakhir</th><th>Pakai (m³)</th></tr></thead>
-        <tbody id="summaryBody"></tbody>
-      </table>
-    </div>
-  </div>
+<div class="stats">
+  <div class="stat"><div class="label">TOTAL UNIT</div><strong>782</strong><small>Tower A & B · Lantai 2–24</small></div>
+  <div class="stat"><div class="label">CATATAN TERSIMPAN</div><strong id="countStat">0</strong><small>di perangkat ini</small></div>
+  <div class="stat"><div class="label">TOTAL PEMAKAIAN</div><strong id="usageStat">0</strong><small>m³ · dari catatan berpasangan</small></div>
+  <div class="stat"><div class="label">PERLU DICEK</div><strong id="reviewStat">0</strong><small>angka lebih kecil / belum lengkap</small></div>
 </div>
-</main>
-
+<div class="layout"><section class="panel" id="entryPanel"><h2>Catat meter baru</h2><p>Pilih lantai (2–24), unit (1–17), lalu ambil foto meter atau ketik angka.</p><form id="entryForm"><div class="fields"><div class="field"><label for="tower">TOWER</label><select id="tower" required><option value="A">Tower A</option><option value="B">Tower B</option></select></div><div class="field"><label for="floor">LANTAI (2–24)</label><select id="floor" required></select></div><div class="field full"><label for="unit">UNIT (1–17)</label><select id="unit" required></select></div><div class="field full"><label for="date">TANGGAL PENCATATAN</label><input id="date" type="date" required></div><div class="field full"><label>FOTO METER / KAMERA / GALERI</label><div class="camera"><input id="photo" type="file" accept="image/*" capture="environment" style="display:none;"><div class="camera-actions"><button type="button" id="cameraBtn" class="primary">📷 Buka Kamera / Ambil Foto</button><button type="button" id="ocrBtn" disabled>🔍 Jalankan OCR</button></div><img id="preview" alt="Pratinjau foto meter" hidden><div class="hint">Tekan tombol 'Buka Kamera / Ambil Foto' untuk langsung memotret atau memilih gambar dari galeri HP.</div></div></div><div class="field full"><label for="reading">ANGKA METER SAAT INI (m³)</label><input id="reading" type="number" min="0" step="0.001" placeholder="Contoh: 125.640" required><div class="small" id="ocrStatus">Ambil foto lalu jalankan OCR, atau ketik manual.</div></div><div class="field full"><label for="notes">CATATAN (opsional)</label><input id="notes" placeholder="Contoh: meter buram / segel rusak"></div></div><div class="notice">Mode offline: penyimpanan lokal & ekspor Excel dapat digunakan tanpa koneksi internet.</div><div class="actions"><button type="submit" class="primary">Simpan catatan</button><button type="reset" id="resetBtn">Bersihkan form</button></div></form></section>
+<section class="panel"><div class="tabs"><button class="tab active" data-tab="history">Riwayat</button><button class="tab" data-tab="summary">Rekap pemakaian</button></div><div id="history" class="section active"><h2>Riwayat pencatatan</h2><p>Filter catatan berdasarkan tower, lantai, atau unit.</p><div class="filters"><select id="filterTower"><option value="">Semua tower</option><option>A</option><option>B</option></select><select id="filterFloor"><option value="">Semua lantai</option></select><input id="searchUnit" placeholder="Cari unit…"></div><div class="table-wrap"><table><thead><tr><th>Tanggal</th><th>Lokasi</th><th>Meter (m³)</th><th>Pemakaian (m³)</th><th>Foto</th><th>Aksi</th></tr></thead><tbody id="historyBody"><tr><td colspan="6" class="empty">Belum ada catatan. Mulai dengan mengambil foto meter.</td></tr></tbody></table></div></div><div id="summary" class="section"><h2>Rekap pemakaian</h2><p>Pemakaian dihitung dari selisih angka meter terbaru dan catatan sebelumnya untuk unit yang sama.</p><div class="filters"><select id="summaryTower"><option value="">Semua tower</option><option>A</option><option>B</option></select><select id="summaryFloor"><option value="">Semua lantai</option></select><input id="summaryMonth" type="month"></div><div class="table-wrap"><table><thead><tr><th>Lokasi</th><th>Catatan terakhir</th><th>Meter terakhir</th><th>Pemakaian tercatat (m³)</th><th>Status</th></tr></thead><tbody id="summaryBody"><tr><td colspan="5" class="empty">Belum ada data untuk direkap.</td></tr></tbody></table></div></div><div class="foot">Data disimpan di browser perangkat ini. Ekspor file Excel (.xlsx) secara rutin untuk cadangan.</div></section></div></main></div>
 <script>
-const $=id=>document.getElementById(id);
-const DBKEY='meterair_data_v2';
-let records=JSON.parse(localStorage.getItem(DBKEY)||'[]');
-let photoData='';
+const $=id=>document.getElementById(id);const DBKEY='meterair_records_v1';let records=loadRecords(),photoData='';
+function loadRecords(){try{return JSON.parse(localStorage.getItem(DBKEY)||'[]')}catch{return []}}function saveRecords(){localStorage.setItem(DBKEY,JSON.stringify(records))}function locationKey(r){return `${r.tower}-${String(r.floor).padStart(2,'0')}-${String(r.unit).padStart(2,'0')}`}function fmt(n){return Number(n).toLocaleString('id-ID',{maximumFractionDigits:3})}
 
-function save(){ localStorage.setItem(DBKEY, JSON.stringify(records)); render(); }
-function locStr(r){ return `${r.tower}-${String(r.floor).padStart(2,'0')}-${String(r.unit).padStart(2,'0')}`; }
-
-// Populate Dropdowns Simple
-function initSelects(){
-    let flr = $('floor'), unt = $('unit');
-    flr.innerHTML = '<option value="">Pilih Lantai</option>';
-    unt.innerHTML = '<option value="">Pilih Unit</option>';
-    for(let i=2; i<=24; i++) flr.innerHTML += `<option value="${i}">Lantai ${i}</option>`;
-    for(let i=1; i<=17; i++) unt.innerHTML += `<option value="${i}">Unit ${i}</option>`;
+function initDropdowns(){
+  const floors = Array.from({length: 23}, (_, i) => i + 2);
+  const units = Array.from({length: 17}, (_, i) => i + 1);
+  function populate(elemId, arr, firstText){
+    const el = $(elemId);
+    if(!el) return;
+    const oldVal = el.value;
+    el.innerHTML = '';
+    if(firstText){
+      let opt = document.createElement('option');
+      opt.value = ''; opt.textContent = firstText; el.append(opt);
+    }
+    arr.forEach(v => {
+      let opt = document.createElement('option');
+      opt.value = v; opt.textContent = v; el.append(opt);
+    });
+    if(oldVal && [...el.options].some(o => o.value === oldVal)){ el.value = oldVal; }
+  }
+  populate('floor', floors, 'Pilih Lantai (2–24)');
+  populate('unit', units, 'Pilih Unit (1–17)');
+  populate('filterFloor', floors, 'Semua lantai');
+  populate('summaryFloor', floors, 'Semua lantai');
 }
-initSelects();
+initDropdowns();
+
 $('date').value = new Date().toLocaleDateString('sv-SE');
 
-function switchTab(id, btn){
-    document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
-    document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
-    btn.classList.add('active'); $(id).classList.add('active');
-}
-
-function prevRec(r){
-    return records.filter(x => x.tower===r.tower && x.floor===r.floor && x.unit===r.unit && x.date < r.date)
-                  .sort((a,b)=>b.date.localeCompare(a.date))[0];
-}
+function sorted(){return [...records].sort((a,b)=>b.date.localeCompare(a.date)||b.createdAt-a.createdAt)}
+function previousFor(r){return records.filter(x=>x.tower===r.tower&&x.floor===r.floor&&x.unit===r.unit&&x.date<r.date).sort((a,b)=>b.date.localeCompare(a.date))[0]}
+function usageFor(r){let prev=previousFor(r);return prev?Number(r.reading)-Number(prev.reading):null}
+function isReview(r){let prev=previousFor(r);return (prev&&Number(r.reading)<Number(prev.reading))||!prev}
 
 function render(){
-    let sorted = [...records].sort((a,b)=>b.date.localeCompare(a.date) || b.createdAt - a.createdAt);
-    
-    // History
-    let fTow = $('filterTower').value, sUni = $('searchUnit').value.toLowerCase();
-    let filt = sorted.filter(r => (!fTow || r.tower===fTow) && (!sUni || locStr(r).toLowerCase().includes(sUni)));
-    $('historyBody').innerHTML = filt.length ? filt.map(r=>{
-        let p = prevRec(r); let u = p ? (r.reading - p.reading).toFixed(3) : '-';
-        return `<tr><td>${r.date}</td><td><b>${locStr(r)}</b></td><td>${r.reading}</td>
-        <td style="color:${u<0?'red':'black'}">${u}</td>
-        <td><button onclick="del('${r.id}')" class="danger" style="padding:4px 8px;font-size:11px;">Hapus</button></td></tr>`;
-    }).join('') : '<tr><td colspan="5" style="text-align:center;">Belum ada data.</td></tr>';
-
-    // Summary
-    let latest = {};
-    sorted.forEach(r => { let k = locStr(r); if(!latest[k] || r.date > latest[k].date) latest[k] = r; });
-    let arr = Object.values(latest).sort((a,b)=>locStr(a).localeCompare(locStr(b)));
-    $('summaryBody').innerHTML = arr.length ? arr.map(r=>{
-        let p = prevRec(r); let u = p ? (r.reading - p.reading).toFixed(3) : '-';
-        return `<tr><td><b>${locStr(r)}</b></td><td>${r.date}</td><td>${r.reading}</td><td style="color:${u<0?'red':'black'}">${u}</td></tr>`;
-    }).join('') : '<tr><td colspan="4" style="text-align:center;">Belum ada rekap.</td></tr>';
+  let data=sorted();
+  $('countStat').textContent=records.length;
+  let usages=records.map(usageFor).filter(n=>n!==null&&n>=0);
+  $('usageStat').textContent=fmt(usages.reduce((a,b)=>a+b,0));
+  $('reviewStat').textContent=records.filter(isReview).length;
+  
+  let filtered=data.filter(r=>(!$('filterTower').value||r.tower===$('filterTower').value)&&(!$('filterFloor').value||String(r.floor)===$('filterFloor').value)&&(! $('searchUnit').value||locationKey(r).toLowerCase().includes($('searchUnit').value.toLowerCase())));
+  
+  $('historyBody').innerHTML=filtered.length?filtered.map(r=>{let u=usageFor(r);return `<tr><td>${esc(r.date)}</td><td><b>${locationKey(r)}</b></td><td>${fmt(r.reading)}</td><td>${u===null?'—':u<0?'<span style="color:#d97706">Cek angka</span>':fmt(u)}</td><td>${r.photo?'<span class="pill">Ada foto</span>':'—'}</td><td><button data-delete="${r.id}">Hapus</button></td></tr>`}).join(''):'<tr><td colspan="6" class="empty">Tidak ada catatan yang cocok.</td>';
+  
+  let sm=data.filter(r=>(!$('summaryTower').value||r.tower===$('summaryTower').value)&&(!$('summaryFloor').value||String(r.floor)===$('summaryFloor').value)&&(!$('summaryMonth').value||r.date.startsWith($('summaryMonth').value)));
+  let latest={};sm.forEach(r=>{let k=locationKey(r);if(!latest[k]||r.date>latest[k].date)latest[k]=r});
+  let arr=Object.values(latest).sort((a,b)=>locationKey(a).localeCompare(locationKey(b)));
+  
+  $('summaryBody').innerHTML=arr.length?arr.map(r=>{let u=usageFor(r);return `<tr><td><b>${locationKey(r)}</b></td><td>${esc(r.date)}</td><td>${fmt(r.reading)}</td><td>${u===null||u<0?'—':fmt(u)}</td><td>${u===null?'<span class="pill">Awal</span>':u<0?'<span style="color:#d97706">Perlu cek</span>':'Normal'}</td></tr>`}).join(''):'<tr><td colspan="5" class="empty">Belum ada data untuk direkap.</td>';
 }
 
-function del(id){
-    if(confirm('Hapus data ini?')) { records = records.filter(x=>x.id!==id); save(); }
-}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 
-$('filterTower').onchange = render;
-$('searchUnit').oninput = render;
+$('entryForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  if(!$('floor').value || !$('unit').value){
+    alert('Silakan pilih Lantai dan Unit terlebih dahulu.');
+    return;
+  }
+  let r={id:crypto.randomUUID?crypto.randomUUID():String(Date.now()),tower:$('tower').value,floor:Number($('floor').value),unit:Number($('unit').value),date:$('date').value,reading:Number($('reading').value),notes:$('notes').value,photo:photoData,createdAt:Date.now()};
+  let sameDate=records.find(x=>x.tower===r.tower&&x.floor===r.floor&&x.unit===r.unit&&x.date===r.date);
+  if(sameDate&&!confirm('Unit ini sudah punya catatan pada tanggal tersebut. Simpan sebagai catatan tambahan?'))return;
+  records.push(r);saveRecords();render();alert('Catatan tersimpan di perangkat.');
+  $('entryForm').reset();$('date').value=new Date().toLocaleDateString('sv-SE');
+  photoData='';$('preview').hidden=true;$('ocrBtn').disabled=true;
+  $('ocrStatus').textContent='Ambil foto lalu jalankan OCR, atau ketik manual.';
+  initDropdowns();
+});
 
-$('photo').onchange = e => {
-    let f = e.target.files[0];
-    if(!f) return;
-    let rd = new FileReader();
-    rd.onload = () => {
-        let img = new Image();
-        img.onload = () => {
-            let cv = document.createElement('canvas');
-            let w=img.width, h=img.height, mx=640;
-            if(w>mx || h>mx){ if(w>h){ h=Math.round(h*mx/w); w=mx; } else { w=Math.round(w*mx/h); h=mx; } }
-            cv.width=w; cv.height=h;
-            cv.getContext('2d').drawImage(img,0,0,w,h);
-            photoData = cv.toDataURL('image/jpeg', 0.6);
-            $('preview').src = photoData;
-            $('preview').style.display = 'block';
-            $('ocrBtn').disabled = false;
-        };
-        img.src = rd.result;
+$('photo').addEventListener('change',e=>{
+  let f=e.target.files[0];
+  if(!f)return;
+  let rd=new FileReader();
+  rd.onload=()=>{
+    let img = new Image();
+    img.onload = () => {
+      let canvas = document.createElement('canvas');
+      let maxW = 640, maxH = 480;
+      let w = img.width, h = img.height;
+      if(w > maxH || h > maxH){
+        if(w > h){ h = Math.round(h * maxW / w); w = maxW; }
+        else { w = Math.round(w * maxH / h); h = maxH; }
+      }
+      canvas.width = w; canvas.height = h;
+      let ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0, w, h);
+      photoData = canvas.toDataURL('image/jpeg', 0.6);
+      $('preview').src = photoData;
+      $('preview').hidden = false;
+      $('ocrBtn').disabled = false;
+      $('ocrStatus').textContent='Foto siap. Tekan Jalankan OCR.';
     };
-    rd.readAsDataURL(f);
-};
+    img.src = rd.result;
+  };
+  rd.readAsDataURL(f);
+});
 
-$('entryForm').onsubmit = e => {
-    e.preventDefault();
-    let r = {
-        id: Date.now().toString(),
-        tower: $('tower').value, floor: Number($('floor').value), unit: Number($('unit').value),
-        date: $('date').value, reading: Number($('reading').value), notes: $('notes').value,
-        photo: photoData, createdAt: Date.now()
-    };
-    if(records.some(x=>x.tower===r.tower && x.floor===r.floor && x.unit===r.unit && x.date===r.date)){
-        if(!confirm('Data unit ini di tanggal yg sama sudah ada. Simpan dobel?')) return;
+$('cameraBtn').onclick = () => { $('photo').click(); };
+$('deleteAllBtn').onclick = () => { if(confirm('Hapus seluruh data?')) { records = []; saveRecords(); render(); } };
+$('resetBtn').onclick=()=>{ setTimeout(()=>{ photoData=''; $('preview').hidden=true; $('ocrBtn').disabled=true; initDropdowns(); },0); };
+
+document.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x===b));
+  document.querySelectorAll('.section').forEach(x=>x.classList.toggle('active',x.id===b.dataset.tab));
+});
+
+['filterTower','filterFloor','searchUnit','summaryTower','summaryFloor','summaryMonth'].forEach(id=>$(id).addEventListener('input',render));
+
+$('historyBody').addEventListener('click',e=>{
+  let id=e.target.dataset.delete;
+  if(id&&confirm('Hapus catatan ini?')){ records=records.filter(r=>r.id!==id); saveRecords(); render(); }
+});
+
+// ROBUST EXCEL EXPORT (Using ExcelJS with CSV/Text fallback for absolute reliability)
+async function exportData(){
+  const btn=$('exportBtn');
+  btn.disabled=true; btn.textContent='Menyiapkan Excel…';
+  try {
+    if(window.ExcelJS){
+      const wb = new ExcelJS.Workbook();
+      const ws = wb.addWorksheet('Riwayat');
+      ws.addRow(['Tanggal','Tower','Lantai','Unit','Kode Lokasi','Angka Meter (m³)','Pemakaian (m³)','Catatan']);
+      ws.getRow(1).font = {bold:true, color:{argb:'FFFFFFFF'}};
+      ws.getRow(1).fill = {type:'pattern', pattern:'solid', fgColor:{argb:'FF087F5B'}};
+      sorted().forEach(r=>{
+        let u = usageFor(r);
+        ws.addRow([r.date, r.tower, r.floor, r.unit, locationKey(r), Number(r.reading), u===null?'':u, r.notes||'']);
+      });
+      const buffer = await wb.xlsx.writeBuffer();
+      const blob = new Blob([buffer], {type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a'); a.href = url; a.download = 'Laporan_Meter_Air_Rusun_' + new Date().toLocaleDateString('sv-SE') + '.xlsx';
+      document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 3000);
+    } else {
+      let csv = '\uFEFFTanggal,Tower,Lantai,Unit,Kode Lokasi,Angka Meter (m3),Pemakaian (m3),Catatan\n';
+      sorted().forEach(r=>{
+        let u = usageFor(r);
+        csv += `"${r.date}","${r.tower}","${r.floor}","${r.unit}","${locationKey(r)}","${r.reading}","${u===null?'':u}","${(r.notes||'').replace(/"/g,'""')}"\n`;
+      });
+      const blob = new Blob([csv], {type: 'text/csv;charset=utf-8;'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a'); a.href = url; a.download = 'Laporan_Meter_Air_Rusun_' + new Date().toLocaleDateString('sv-SE') + '.csv';
+      document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 3000);
     }
-    records.push(r); save(); alert('Tersimpan!');
-    $('entryForm').reset(); $('date').value = new Date().toLocaleDateString('sv-SE');
-    photoData=''; $('preview').style.display='none'; $('ocrBtn').disabled=true; $('ocrStatus').innerHTML='';
-};
-
-$('resetBtn').onclick = () => {
-    setTimeout(()=>{ photoData=''; $('preview').style.display='none'; $('ocrBtn').disabled=true; $('ocrStatus').innerHTML=''; },10);
-};
-
-$('exportBtn').onclick = async () => {
-    $('exportBtn').textContent = 'Memproses...';
-    try {
-        let lib = window.ExcelJS;
-        if(!lib){ fallbackCSV(); return; }
-        const wb = new lib.Workbook();
-        const ws = wb.addWorksheet('Riwayat');
-        ws.addRow(['Tanggal','Tower','Lantai','Unit','Kode Lokasi','Angka Meter (m³)','Pakai (m³)','Catatan','Foto']);
-        ws.getRow(1).font = {bold:true, color:{argb:'FFFFFFFF'}};
-        ws.getRow(1).fill = {type:'pattern', pattern:'solid', fgColor:{argb:'FF087F5B'}};
-        
-        let imRefs = [];
-        let srtd = [...records].sort((a,b)=>a.date.localeCompare(b.date));
-        srtd.forEach(r => {
-            let p = prevRec(r); let u = p ? (r.reading - p.reading).toFixed(3) : '';
-            let row = ws.addRow([r.date, r.tower, r.floor, r.unit, locStr(r), r.reading, u, r.notes, r.photo?'Ada Foto':'Tidak']);
-            row.height = r.photo ? 70 : 20;
-            if(r.photo){ try{ let iId=wb.addImage({base64:r.photo, extension:'jpeg'}); imRefs.push({ws, id:iId, rn:row.number}); }catch(e){} }
-        });
-        imRefs.forEach(x => x.ws.addImage(x.id, {tl:{col:8, row:x.rn-1}, br:{col:9, row:x.rn}}));
-        
-        const buf = await wb.xlsx.writeBuffer();
-        let b = new Blob([buf], {type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
-        let a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = 'Laporan_Meter_Air.xlsx';
-        a.click();
-    } catch(e) { fallbackCSV(); }
-    $('exportBtn').textContent = '↓ Ekspor Excel';
-};
-
-function fallbackCSV(){
-    let csv = 'Tanggal,Tower,Lantai,Unit,Kode Lokasi,Meter,Pakai,Catatan\n';
-    let srtd = [...records].sort((a,b)=>a.date.localeCompare(b.date));
-    srtd.forEach(r => {
-        let p = prevRec(r); let u = p ? (r.reading - p.reading).toFixed(3) : '';
-        csv += `${r.date},${r.tower},${r.floor},${r.unit},${locStr(r)},${r.reading},${u},"${r.notes}"\n`;
-    });
-    let b = new Blob([csv], {type:'text/csv'});
-    let a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = 'Laporan_Meter_Air.csv';
-    a.click();
-    alert('ExcelJS offline gagal, diekspor sebagai CSV.');
+  } catch(err) {
+    alert('Ekspor gagal: ' + err.message);
+  } finally {
+    btn.disabled=false; btn.textContent='↓ Ekspor ke Excel (.xlsx)';
+  }
 }
 
-$('ocrBtn').onclick = async () => {
-    $('ocrStatus').textContent = 'Memuat OCR... harap tunggu.';
-    if(!window.Tesseract){
-        let s = document.createElement('script');
-        s.src = 'https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js';
-        s.onload = runOCR; s.onerror = () => $('ocrStatus').textContent = 'Gagal muat OCR.';
-        document.head.appendChild(s);
-    } else runOCR();
-};
-
-async function runOCR(){
-    try {
-        $('ocrStatus').textContent = 'Sedang membaca gambar...';
-        let res = await Tesseract.recognize(photoData, 'eng');
-        let txt = res.data.text || '';
-        let nums = txt.replace(/[^0-9., ]/g,'').replace(/,/g,'.').split(' ').filter(x=>Number(x)>0);
-        if(nums.length){
-            $('reading').value = parseFloat(nums.sort((a,b)=>b.length-a.length)[0]);
-            $('ocrStatus').textContent = 'Berhasil! Silakan cek kembali angkanya.';
-        } else $('ocrStatus').textContent = 'Angka tidak jelas. Ketik manual saja.';
-    } catch(e) { $('ocrStatus').textContent = 'Gagal membaca.'; }
-}
+$('exportBtn').onclick = exportData;
+$('newBtn').onclick = () => $('tower').focus();
 
 render();
 </script></body></html>
